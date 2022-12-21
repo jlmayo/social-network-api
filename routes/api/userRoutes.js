@@ -21,7 +21,7 @@ router
     .delete(deleteUser);
 
 router
-    .route('./users/:userId/friends/:friendId')
+    .route('./user/:userId/friends/:friendId')
     .post(addFriend)
     .delete(deleteFriend);
 
