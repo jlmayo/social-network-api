@@ -10,9 +10,9 @@ const reactionsSchema = new Schema(
         reactionBody: {
             type: String,
             required: [true, 'Please write your reaction'],
-            maxLength: [ 280, 'Ok! Enough already!']
+            max: [ 280, 'Ok! Enough already!']
         },
-        username: {
+        userName: {
             type: String,
             required: [ true, 'No lurkers allowed. Leave your name, coward!']
         },
@@ -35,8 +35,8 @@ const thoughtsSchema = new Schema(
         thoughtText: {
             type: String,
             required: [ true, 'No thoughts to share?' ],
-            minLength: 1,
-            maxLength: [ 280, 'Ok! Enough already!' ]
+            min: 1,
+            max: [ 280, 'Ok! Enough already!' ]
         },
         createdAt: {
             type: Date,

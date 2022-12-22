@@ -15,13 +15,13 @@ router
     .post(createUser);
 
 router
-    .route('/:userId')
+    .route('/:id')
     .get(getSingleUser)
     .put(updateUser)
     .delete(deleteUser);
 
 router
-    .route('./user/:userId/friends/:friendId')
+    .route('/:id/friends/:friendsId')
     .post(addFriend)
     .delete(deleteFriend);
 
