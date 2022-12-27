@@ -23,7 +23,7 @@ module.exports = {
             .then((thoughts) => {
                 return User.findOneAndUpdate(
                     { _id: req.params.userId },
-                    { $addToSet: { thoughtText: req.params.thoughts._id }},
+                    { $addToSet: { thoughts: thoughts._id }},
                     { new: true }
                 );
             })
@@ -59,7 +59,7 @@ module.exports = {
     },
 
     deleteThought(req, res) {
-        Thoughts.findOneAndDelete({ _id: req.params.thoughtsId })
+        Thoughts.findOneAndRemove({ _id: req.params.thoughtsId })
             .then((thoughts) =>    
                 !thoughts
                     ? res.status(404).json({ message: 'Head Empty. No thoughts.'})
@@ -97,7 +97,7 @@ module.exports = {
     deleteReaction(req, res) {
         Thoughts.findOneAndUpdate(
             { _id: req.params.thoughtsId },
-            { $pull: { reactions: { reactionsId: req.body.reactionsId }}},
+            { $pull: { reactions: { reactionsId: req.params.reactionsId }}},
         )
             .then((thoughts) =>
                 !thoughts

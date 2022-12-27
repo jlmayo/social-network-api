@@ -4,10 +4,10 @@ const formatDate = require('../utils/formatDate');
 
 const reactionsSchema = new Schema(
     {
-        reactionsId: {
+        /*reactionsId: {
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId()
-        },
+        },*/
         reactionBody: {
             type: String,
             required: [true, 'Please write your reaction'],
