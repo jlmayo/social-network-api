@@ -23,7 +23,7 @@ module.exports = {
             .then((thoughts) => {
                 return User.findOneAndUpdate(
                     { _id: req.params.userId },
-                    { $addToSet: { thoughts: req.params.thoughts._id }},
+                    { $addToSet: { thoughtText: req.params.thoughts._id }},
                     { new: true }
                 );
             })
@@ -71,7 +71,7 @@ module.exports = {
             )
             .then((user) =>
                 !user
-                ? res.status(404).json({ message: 'Good thinking but no User with this Id!'})
+                ? res.status(404).json({ message: 'No thoughts with this ID!'})
                 : res.json({ message: 'Head empty. Thoughts erased!' })
             )
             .catch((err) => res.status(500).json(err));
